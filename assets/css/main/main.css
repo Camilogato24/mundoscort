@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
 /* HOME POST */
 body {
     font-family: "Arial", sans-serif;
@@ -227,7 +230,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -235,7 +238,7 @@ a {
 }
 
 h1 {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 300;
 }
 
@@ -485,6 +488,8 @@ h1 {
   .footer {
       background-color: rgb(136,48,121);
       color: #fff;
+      font-family: 'Montserrat', sans-serif;
+
   }
   .footer-wave-svg {
       background-color: transparent;
@@ -1180,4 +1185,52 @@ h1 {
 }
 .container-gallery .gallery-thumbnails img {
     border-radius: 0;
+}
+
+.content-contact button.btn.btn-primary {
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 22px;
+  border-radius: 0;
+  cursor: pointer;
+  padding: 15px;
+  transition: 0.3s ease all;
+}
+.content-contact .btn.btn-primary:hover {
+  background: #883079;
+}
+
+.content-contact button.btn.btn-secundary {
+  background: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 22px;
+  border-radius: 0;
+  cursor: pointer;
+  padding: 15px;
+  border: 2px solid #000;
+  color: #000;
+  transition: 0.3s ease all;
+}
+.content-contact .btn.btn-secundary:hover {
+  border-color: #883079;
+  color: #883079;
+}
+
+.content-more {
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.content-more .product-cell {
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+.content-more span.cell-label {
+  font-weight: bold;
+  margin-right: 5px;
 }

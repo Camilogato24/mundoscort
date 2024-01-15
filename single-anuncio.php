@@ -17,8 +17,6 @@ get_header(); ?>
                                         <?php foreach( $images as $image ): ?>
                                             <li class="swiper-slide">
                                                 <img src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-                                                <!-- <a href="<?php echo esc_url($image['url']); ?>">
-                                                </a> -->
                                                 <p><?php echo esc_html($image['caption']); ?></p>
                                             </li>
                                         <?php endforeach; ?>
@@ -28,16 +26,14 @@ get_header(); ?>
                         ?>
                     </div>
                     <div class="gallery-items">
-                    <?php
+                        <?php
                             $images = get_field('gallery-anuncio');
                             if( $images ): ?>
                             <div thumbsSlider="" class="swiper mySwiper2">
                                 <ul class="swiper-wrapper">
                                     <?php foreach( $images as $image ): ?>
                                         <li class="swiper-slide">
-                                            <a href="<?php echo esc_url($image['url']); ?>">
-                                                <img src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-                                            </a>
+                                            <img src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                                             <p><?php echo esc_html($image['caption']); ?></p>
                                         </li>
                                     <?php endforeach; ?>
@@ -65,6 +61,20 @@ get_header(); ?>
                         <button type="button" title="wp" class="btn btn-primary">Atiendo por Whatsapp</button>
                         <button type="button" title="cel" class="btn btn-secundary">Llámame</button>
                     </div>
+                    <div class="content-more">
+                        <div class="product-cell sales"><span class="cell-label">Localización:</span><?php the_field('localizacion', get_the_ID()) ; ?></div>
+                        <div class="product-cell sales"><span class="cell-label">Nacionalidad:</span><?php the_field('nacionalidad', get_the_ID()); ?></div>
+                        <div class="product-cell sales"><span class="cell-label">Edad:</span><?php the_field('edad', get_the_ID()); ?></div>
+                        <div class="product-cell sales"><span class="cell-label">Teléfono:</span><?php the_field('telefono', get_the_ID()); ?></div>
+                        <div class="product-cell sales"><span class="cell-label">Apodo o nombre:</span><?php the_field('nombre_o_apodo', get_the_ID()); ?></div>
+                        <div class="product-cell sales"><span class="cell-label">Zona:</span><?php the_field('zona_de_la_ciudad', get_the_ID()); ?></div>
+                        <div class="product-cell sales"><span class="cell-label">Disponibilidad:</span><?php the_field('disponibilidad', get_the_ID()); ?></div>
+                        <div class="product-cell sales"><span class="cell-label">Horario:</span><?php the_field('horario', get_the_ID()); ?></div>
+                        <div class="product-cell sales"><span class="cell-label">Profesión:</span><?php the_field('profesion', get_the_ID()); ?></div>
+                        <div class="product-cell sales"><span class="cell-label">Peso:</span><?php the_field('peso', get_the_ID()); ?></div>
+                        <div class="product-cell sales"><span class="cell-label">Precio:</span><?php the_field('precio', get_the_ID()); ?>€</div>
+
+                    </div>
                 </div>
             </div>
             <div class="content-body">
@@ -73,54 +83,6 @@ get_header(); ?>
                 <form action="doit">
 
                 </form>
-            </div>
-        </section>
-        <section class="about-section" id="post-<?php the_ID(); ?>">
-            <div class="container">
-                <div class="row grid-single">
-                    <div class="content-column order-2">
-                        <div class="inner-column">
-                            <div class="sec-title">
-                                <span class="title">scorts, modelo</span>
-                                <h2><?php the_title(); ?></h2>
-                            </div>
-                            <div class="text">
-                                <?php the_content(); ?>
-                            </div>
-                            <div class="btn-box">
-                                <a href="#" class="theme-btn btn-style-one">Llamame</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Image Column -->
-                    <div class="image-column">
-                        <div class="inner-column wow fadeInLeft">
-                            <img src="<?php the_field('imagen_anuncio', get_the_ID()); ?>" alt="product">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="text">
-                <div class="product-cell sales"><span class="cell-label">Localización:</span><?php the_field('localizacion', get_the_ID()); ?></div>
-                <div class="product-cell sales"><span class="cell-label">Premium:</span><?php the_field('premium', get_the_ID()); ?></div>
-                <div class="product-cell sales"><span class="cell-label">Nacionalidad:</span><?php the_field('nacionalidad', get_the_ID()); ?></div>
-                <div class="product-cell sales"><span class="cell-label">Top:</span><?php the_field('top', get_the_ID()); ?></div>
-                <div class="product-cell sales"><span class="cell-label">Precio:</span><?php the_field('precio', get_the_ID()); ?>€</div>
-
-                </div>
-                <div class="text">
-                    Here we are trying to give you all kinds of technical content, whether it is related to designing or
-                    functionality. We are creating content on a lot of languages and will continue to make it free of cost
-                    even if you use it without any problem. Which is a very important thing.
-                </div>
-                <div class="text">
-                    Here you can also share the content you create if our technical team likes it, then we will also share it
-                    on our blog.
-                </div>
-                <div class="text">
-                    In the end, I would say keep visiting our website and enjoy the quality content.
-                </div>
             </div>
         </section>
         <?php endwhile; ?>
