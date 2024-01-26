@@ -5,8 +5,13 @@ Template Name: Login plugin
 get_header();
 ?>
 <h2>Mundo Scort Login/Registro</h2>
+<div class="tabs__buttons--container">
+  <button class="tabs__tab-btn" data-tab-id="login">Login</button>
+  <button class="tabs__tab-btn" data-tab-id="sign-up">Registro de cuenta</button>
+</div>
+
 <div class="container" id="container">
-	<div class="form-container sign-up-container">
+	<div class="form-container sign-up-container tabs__tab" data-tab="sign-up">
 		<p class="register-message" style="display:none"></p>
 		<form action="#" method="POST" name="register-form" class="register-form" id="register">
 			<h1>Crea tu cuenta</h1>
@@ -17,7 +22,7 @@ get_header();
 			<input class="submit_button" type="submit" value="Registrate" name="submit-login">
 		</form>
 	</div>
-	<div class="form-container sign-in-container">
+	<div class="form-container sign-in-container tabs__tab" data-tab="login">
 		<form id="login" action="login" method="post">
 			<h1>Ingresa</h1>
 			<p class="status"></p>
@@ -111,6 +116,45 @@ get_header();
         });
     }
 });
+
+const tabsBtns = Array.from(document.querySelectorAll("[data-tab-id]"));
+const tabs = Array.from(document.querySelectorAll("[data-tab]"));
+
+let selectedTab = tabsBtns[0].dataset.tabId;
+
+const hideTabs = () => {
+  tabs
+    .filter((tab) => tab.dataset.tab !== selectedTab)
+    .forEach((tab) => {
+      tab.classList.add("tabs__tab--hide");
+    });
+
+  tabsBtns
+    .filter((tab) => tab.dataset.tabId !== selectedTab)
+    .forEach((tab) => {
+      tab.classList.add("tabs__tab-btn--not-selected");
+    });
+};
+hideTabs();
+
+const handleSelectTab = (e) => {
+  selectedTab = e.target.dataset.tabId;
+
+  tabs.forEach((tab) => {
+    tab.classList.remove("tabs__tab--hide");
+  });
+
+  tabsBtns.forEach((tab) => {
+    tab.classList.remove("tabs__tab-btn--not-selected");
+  });
+
+  hideTabs();
+};
+
+tabsBtns.forEach((btn) => {
+  btn.addEventListener("click", handleSelectTab);
+});
+
 
 	
 </script>

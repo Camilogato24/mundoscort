@@ -1161,3 +1161,9 @@ section {
 #ast-scroll-top {
   background-color: var(--black-color);
 }
+
+.main-header-menu > .menu-item > .menu-link, #astra-footer-menu > .menu-item > .menu-link {
+  color: #641e33 !important;
+  font-size: 20px;
+  font-weight: 500;
+}
