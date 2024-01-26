@@ -55,7 +55,7 @@
             <h2 class="footer-menu-name"> Acciones rápidas</h2>
             <ul id="menu-quick-links" class="footer-menu-list">
               <li class="menu-item menu-item-type-custom menu-item-object-custom">
-                <a target="_blank" rel="noopener noreferrer" href="#">Centro de soporte</a>
+                <a target="_blank" rel="noopener noreferrer" href="http://name.local/centro">Centro de soporte</a>
               </li>
             </ul>
           </div>
@@ -64,7 +64,8 @@
           <div class="footer-call-to-action">
             <h2 class="footer-call-to-action-title"> Hablemos</h2>
             <p class="footer-call-to-action-description"> Tienes alguna pregunta?</p>
-            <a class="footer-call-to-action-button button" href="#" target="_self"> Email </a>
+            <a class="footer-call-to-action-button button" href="mailto:tudirecciondeemail@example.com" target="_self"> Email </a>
+
           </div>
         </div>
         <div class="footer-social-links"> <svg class="footer-social-amoeba-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 236 54">
@@ -100,7 +101,7 @@
       <div class="footer-copyright">
         <div class="footer-copyright-wrapper">
           <p class="footer-copyright-text">
-            <a class="footer-copyright-link" href="#" target="_self"> ©2020. | Camilo F. | All rights reserved. </a>
+            <a class="footer-copyright-link" href="#" target="_self"> ©2020. | Mundo Scort. | All rights reserved. </a>
           </p>
         </div>
       </div>

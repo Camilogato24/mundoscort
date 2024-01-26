@@ -1,10 +1,10 @@
 var swiper = new Swiper(".swiperHome", {
   loop: true,
   slidesPerView: 1,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
+  // autoplay: {
+  //   delay: 2500,
+  //   disableOnInteraction: false,
+  // },
   keyboard: {
     enabled: true,
     onlyInViewport: false,

@@ -45,6 +45,12 @@ get_header(); ?>
                 </div>
                 <div class="container-content">
                     <div class="content-title">
+                        <?php
+                            if (puede_editar_post()) {
+                                // Muestra el botón flotante con el icono de lápiz
+                                echo '<a href="#" id="edit-post" class="edit-post"><i class="fa fa-pencil"></i> Editar anuncio.</a>';
+                            } 
+                        ?>
                         <h1 class="title">
                             <?php the_title(); ?>
                         </h1>
@@ -78,17 +84,36 @@ get_header(); ?>
                 </div>
             </div>
             <div class="content-body">
-
-                <button type="button" title="wp" class="btn btn-primary">Atiendo por Whatsapp</button>
-                <form action="doit">
-
-                </form>
             </div>
         </section>
+        <div class="off-canvas-content">
+            <div class="overlayCanvas"></div>
+            <div class="menu-off-canvas" id="menu-off-canvas">
+                <!-- form update post -->
+                <?php
+                    // Verifica si estás en una página de single-post
+                    if (is_single()) {
+                        // Obtiene el ID del post actual
+                        $post_id = get_the_ID();
+
+                        // Muestra el formulario de actualización
+                        echo display_frontend_form_update($post_id);
+                    }
+                ?>
+
+            </div>
+        </div>
         <?php endwhile; ?>
 
     </main><!-- #main -->
 </div><!-- #primary -->
-
-<!-- <?php //get_sidebar(); ?> -->
+<script>
+    const openUpdateForm = document.getElementById("edit-post");
+    const menuCanvas = document.getElementById("menu-off-canvas");
+    const body = document.querySelector("body");
+    openUpdateForm.addEventListener('click', () => {
+        menuCanvas.classList.add("animated");
+        body.classList.add("animated")
+    });
+</script>
 <?php get_footer(); ?>

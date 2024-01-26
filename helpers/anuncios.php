@@ -28,12 +28,22 @@ function mostrar_anuncios_lista_completa_shortcode($atts) {
         while ($anuncios_query->have_posts()) {
             $anuncios_query->the_post();
             $post_url = get_permalink();
+            $is_mobile = wp_is_mobile();
+            $edad = $is_mobile ? '' : '<p>' . esc_html(get_field('edad', get_the_ID())) . '</p>';
+            $nacionalidad = $is_mobile ? '' : '<p>' . esc_html(get_field('nacionalidad', get_the_ID())) . '</p>';
+            $localizacion = $is_mobile ? '' : '<p>' . esc_html(get_field('localizacion', get_the_ID())) . '</p>';
+            $hearth = $is_mobile ? '' : '<div class=\"heart\"> </div>';
+
             // Agrega el contenido de cada anuncio
             $output .= '<div class="anuncio">';            
             // Muestra la imagen destacada
             $thumbnail_url = get_field('imagen_anuncio', get_the_ID());
             if ($thumbnail_url) {
-                $output .= '<div class="anuncio-imagen"><img src="' . esc_url($thumbnail_url) . '"></div>';
+                $output .= '<div class="anuncio-imagen">
+                    <a href=" ' . esc_url($post_url) .'" class=\"hidden-link\">
+                        <img src="' . esc_url($thumbnail_url) . '">
+                    </a>
+                </div>';
             }
 
             // Muestra el contenido
@@ -43,16 +53,18 @@ function mostrar_anuncios_lista_completa_shortcode($atts) {
                         ". textoTop(get_field('top', get_the_ID())) ."
                         ". premium(get_field('premium', get_the_ID())) ."
                     </div>
-                    <h2>" . esc_html(get_the_title()) . "</h2>
-                    <p>" . esc_html(get_the_content()) . "</p>
+                    <a href=". esc_url($post_url) ." class=\"hidden-link\">
+                        <h2>" . esc_html(get_the_title()) . "</h2>
+                    </a>
+                    <p>" . esc_html(get_the_excerpt()) . "</p>
                     <div class=\"social-media\">
                         <img class=\"wp\" src=\"" . esc_url(get_template_directory_uri() . "/assets/images/whatsapp.png") . "\">
-                        <p>" . esc_html(get_field('edad', get_the_ID())) . "</p>
-                        <p>" . esc_html(get_field('nacionalidad', get_the_ID())) . "</p>
+                        $edad
+                        $nacionalidad
                         <p class=\"price\">" . esc_html(get_field('precio', get_the_ID())) . " €</p>
-                        <p>" . esc_html(get_field('localizacion', get_the_ID())) . "</p>
+                        $localizacion
                         <p>" . esc_html(get_field('nombre_o_apodo', get_the_ID())) . "</p>
-                        <div class=\"heart\"> </div>
+                        $hearth
                     </div>
                 </div>
             </div>";

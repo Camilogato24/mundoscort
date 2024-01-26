@@ -37,4 +37,23 @@ function display_frontend_form() {
     )); 
     return ob_get_clean(); 
 }
+
+function display_frontend_form_update($post_id) {
+    ob_start(); 
+ 
+    acf_form(array(
+        'post_id'       => $post_id,
+        'post_title'    => true,
+        'form' => true, 
+        'new_post'      => array(
+            'post_type'     => 'anuncio',
+            'post_status'   => 'publish'
+        ),
+        'field_groups' => array(139),
+        'submit_value'  => 'actualizar el anuncio',
+        'updated_message' => __( '' ),
+
+    )); 
+    return ob_get_clean(); 
+}
 ?>

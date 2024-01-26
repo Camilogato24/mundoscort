@@ -1,5 +1,3 @@
-
-
 document.querySelector(".grid").addEventListener("click", function () {
   document.querySelector(".list").classList.remove("active");
   document.querySelector(".grid").classList.add("active");
@@ -16,6 +14,10 @@ document.querySelector(".list").addEventListener("click", function () {
   document.querySelector(".products-area-wrapper").classList.add("tableView");
 });
 
+document.querySelector(".account-info-more").addEventListener("click", function () {
+  document.querySelector(".modal-close-session").classList.toggle("animated");
+});
+
 var modeSwitch = document.querySelector(".mode-switch");
 modeSwitch.addEventListener("click", function () {
   document.documentElement.classList.toggle("light");
@@ -28,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     enlaces.forEach(function (enlace) {
         enlace.addEventListener('click', function (event) {
-            console.log(enlace, "enlace")
             event.preventDefault();
             var id = enlace.id + '-content';
 
