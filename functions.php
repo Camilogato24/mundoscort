@@ -277,3 +277,13 @@ function custom_excerpt_more($more) {
     return '';
 }
 add_filter('excerpt_more', 'custom_excerpt_more');
+
+
+
+function redireccion_si_logueado() {
+    if (is_user_logged_in() && is_page('login')) {
+        wp_redirect(home_url('/admin')); // Cambia '/' por la URL a la que quieres redirigir al usuario logueado
+        exit();
+    }
+}
+add_action('template_redirect', 'redireccion_si_logueado');

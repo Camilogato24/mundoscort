@@ -1167,3 +1167,7 @@ section {
   font-size: 20px;
   font-weight: 500;
 }
+
+[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg {
+  fill: #641e33 !important;
+}

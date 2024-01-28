@@ -165,7 +165,7 @@ input[type="submit"].ghost {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 10px;
+    padding: 10px 40px;
   }
 }
 
@@ -443,4 +443,9 @@ button.tabs__tab-btn.tabs__tab-btn--not-selected {
   to {
     opacity: 1;
   }
+}
+
+
+p.status {
+	max-width: 250px;
 }

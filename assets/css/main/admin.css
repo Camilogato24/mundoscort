@@ -127,18 +127,18 @@ header.site-header {
   font-size: 14px;
   line-height: 24px;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1024px) {
   .sidebar-list-item a svg{
     display: none;
-  }
-  .sidebar-list-item a {
-    padding: 0;
-    text-align: center;
-    justify-content: center;
   }
 }
 .sidebar-list-item svg {
   margin-right: 8px;
+}
+@media screen and (max-width: 767px) {
+  .sidebar-list-item svg {
+    display: none;
+  }
 }
 .sidebar-list-item:hover {
   background-color: var(--sidebar-hover-link);

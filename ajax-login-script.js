@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
                 'password': $('form#login #password').val(), 
                 'security': $('form#login #security').val() },
             success: function(data){
-                $('form#login p.status').text(data.message);
+                $('form#login p.status').html(data.message);
                 if (data.loggedin == true){
                     document.location.href = ajax_login_object.redirecturl;
                 }

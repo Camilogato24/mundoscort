@@ -33,10 +33,16 @@ function ajax_login(){
     $info['remember'] = true;
 
     $user_signon = wp_signon( $info, false );
-    if ( !is_wp_error($user_signon) ){
+    if ( is_wp_error($user_signon) ) {
+        // Handle login errors
+        $errors = $user_signon->get_error_messages();
+        $error_message = '<span class="error-message">' . __('Error de inicio de sesión: ') . implode(", ", $errors) . '</span>';
+        echo json_encode(array('loggedin'=>false, 'message'=> wp_kses_post($error_message)));
+    } else {
+        // Login successful
         wp_set_current_user($user_signon->ID);
         wp_set_auth_cookie($user_signon->ID);
-        echo json_encode(array('loggedin'=>true, 'message'=>__('Login eitoso, redirigiendo...')));
+        echo json_encode(array('loggedin'=>true, 'message'=>__('Inicio de sesión exitoso, redirigiendo...')));
     }
 
     die();
